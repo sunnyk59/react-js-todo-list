@@ -2,11 +2,8 @@ import React, { useState } from 'react'
 
 export default function TodoInput(props) {
 
-    const { handleAddToDo } = props;
+    const { handleAddToDo, toDoValue, setToDoValue } = props;
 
-    const [toDoValue, setToDoValue] = useState("");
-
-    
     return (
         <header>
             <input type="text" placeholder="Type your to do here..." value={toDoValue}
@@ -16,7 +13,10 @@ export default function TodoInput(props) {
             />
 
             <button onClick={
-                () => handleAddToDo(toDoValue)
+                () => {
+                    handleAddToDo(toDoValue);
+                    setToDoValue("");
+                }
             }>Add</button>
         </header>
     )
